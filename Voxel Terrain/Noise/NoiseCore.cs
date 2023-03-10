@@ -103,27 +103,6 @@ public static class NoiseCore {
 
         return noiseMap;
     }
-
-    public static float[] FalloffMap(int sizeX, int sizeZ, float steepness = 2f) {
-        float[] falloffMap = new float[sizeX * sizeZ];
-
-        int halfSizeX = sizeX / 2;
-        int halfSizeZ = sizeZ / 2;
-        int index = 0;
-
-        for (int x = 0; x < sizeX; x ++) {
-            for (int z = 0; z < sizeZ; z ++) {
-                float a = math.abs((float) (x - halfSizeX) / (halfSizeX - 1));
-                float b = math.abs((float) (z - halfSizeZ) / (halfSizeZ - 1));
-
-                float val = math.max(a, b);
-
-                falloffMap[index ++] = math.pow(val, steepness);
-            }
-        }
-
-        return falloffMap;
-    }
 }
 
 // all the noise settings that i definitiely did not steal from the fastnoise lite gui
